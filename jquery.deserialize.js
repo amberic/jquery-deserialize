@@ -12,7 +12,8 @@
                     if(typeof h[matches[1]] === 'undefined') {
                         h[matches[1]] = {};
                     }
-                    h[matches[1]][matches[2]] = decodeURIComponent(kv[1]);
+                    h[matches[1]][matches[2]] = $.isNumeric(decodeURIComponent(kv[1])) ?
+                        parseFloat(decodeURIComponent(kv[1])) : decodeURIComponent(kv[1]);
                 } else {
                     h[kv[0]] = decodeURIComponent(kv[1]);
                 }
